@@ -33,10 +33,21 @@ cv2.waitKey(0)
 """
 
 # Median blurring
+"""
 blurred = np.hstack([
     cv2.medianBlur(img, 3),
     cv2.medianBlur(img, 5),
     cv2.medianBlur(img, 7),
 ])
 cv2.imshow("Median", blurred)
+cv2.waitKey(0)
+"""
+
+# Bilateral blurring
+blurred = np.hstack([
+    cv2.bilateralFilter(img, 5, 21, 21),
+    cv2.bilateralFilter(img, 7, 31, 31),
+    cv2.bilateralFilter(img, 9, 41, 41)
+])
+cv2.imshow("Bilateral", blurred)
 cv2.waitKey(0)
