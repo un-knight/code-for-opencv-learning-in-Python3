@@ -22,10 +22,21 @@ cv2.waitKey(0)
 """
 
 # Gaussian blurring
+"""
 blurred = np.hstack([
     cv2.GaussianBlur(img, (3, 3), 0),
     cv2.GaussianBlur(img, (5, 5), 0),
     cv2.GaussianBlur(img, (7, 7), 0),
 ])
 cv2.imshow("Gaussian", blurred)
+cv2.waitKey(0)
+"""
+
+# Median blurring
+blurred = np.hstack([
+    cv2.medianBlur(img, 3),
+    cv2.medianBlur(img, 5),
+    cv2.medianBlur(img, 7),
+])
+cv2.imshow("Median", blurred)
 cv2.waitKey(0)
