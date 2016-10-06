@@ -14,5 +14,20 @@ blurred = cv2.GaussianBlur(img, (5, 5), 0)
 cv2.imshow("Image", img)
 
 T = mahotas.thresholding.otsu(blurred)
-# print("Otsu's threshold: %d" % T)
+print("Otsu's threshold: %d" % T)
+
+thresh = img.copy()
+thresh[thresh > T] = 255
+thresh[thresh < 255] = 0
+thresh = cv2.bitwise_not(thresh)
+cv2.imshow("Otsu", thresh)
+
+T = mahotas.thresholding.rc(blurred)
+print("Riddler-Calvard: %d" % T)
+thresh = img.copy()
+thresh[thresh > T] = 255
+thresh[thresh < 255] = 0
+thresh = cv2.bitwise_not(thresh)
+cv2.imshow("Riddle-Calvard", thresh)
+cv2.waitKey(0)
 
